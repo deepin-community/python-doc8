@@ -1,0 +1,3 @@
+version=3
+https://github.com/stackforge/doc8/tags .*/(\d[\d\.]+)\.tar\.gz
+
