@@ -1,15 +1,61 @@
-Source: template-repository
-Section: unknown
+Source: python-doc8
+Section: python
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian OpenStack <team+openstack@tracker.debian.org>
+Uploaders:
+ Thomas Goirand <zigo@debian.org>,
+ Michal Arbet <michal.arbet@ultimum.io>,
+Build-Depends:
+ debhelper-compat (= 10),
+ dh-python,
+ openstack-pkg-tools,
+ pybuild-plugin-pyproject,
+ python3-all,
+ python3-pbr,
+ python3-setuptools,
+ python3-setuptools-scm,
+ python3-sphinx,
+ python3-sphinx-rtd-theme,
+Build-Depends-Indep:
+ python3-chardet,
+ python3-docutils,
+ python3-hacking,
+ python3-oslosphinx,
+ python3-pytest,
+ python3-restructuredtext-lint,
+ python3-stevedore,
+ python3-testtools,
+Standards-Version: 4.4.1
+Vcs-Browser: https://salsa.debian.org/openstack-team/libs/python-doc8
+Vcs-Git: https://salsa.debian.org/openstack-team/libs/python-doc8.git
+Homepage: https://github.com/PyCQA/doc8
+Testsuite: autopkgtest-pkg-pybuild
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: python-doc8-doc
+Section: doc
+Architecture: all
+Depends:
+ ${misc:Depends},
+ ${sphinxdoc:Depends},
+Description: style checker for Sphinx (or other) RST documentation - doc
+ Doc8 is an opinionated style checker for rst (with basic support for plain
+ text) styles of documentation.
+ .
+ This package contains the documentation.
+
+Package: python3-doc8
+Architecture: all
+Depends:
+ python3-chardet,
+ python3-docutils,
+ python3-restructuredtext-lint,
+ python3-stevedore,
+ ${misc:Depends},
+ ${python3:Depends},
+Suggests:
+ python-doc8-doc,
+Description: Style checker for Sphinx (or other) RST documentation - Python 3.x
+ Doc8 is an opinionated style checker for rst (with basic support for plain
+ text) styles of documentation.
+ .
+ This package contains the Python 3.x module.
